@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scripts_task/shared/assets/assets.gen.dart';
 
 class WebScaffold extends StatelessWidget {
@@ -24,7 +23,7 @@ class WebScaffold extends StatelessWidget {
 
                 //dashboard
                 Assets.icons.dashboard.svg(),
-                Text('Dashboard', style: TextStyle(),)
+                const Text('Dashboard', style: TextStyle(),)
 
 
               ],
