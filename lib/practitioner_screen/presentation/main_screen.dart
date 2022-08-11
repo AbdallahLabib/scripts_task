@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scripts_task/shared/assets/assets.gen.dart';
+import 'package:scripts_task/practitioner_screen/presentation/calendar_widget.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -19,19 +19,30 @@ class MainScreen extends StatelessWidget {
           ),
         ),
         //search bar
-        Container(
-          decoration: BoxDecoration(
-            color: const Color(0xffF5F5F5),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Row(
-            children: [
-              Icon(
-                Icons.search,
-              ),
-            ],
+        const Padding(
+          padding: EdgeInsets.only(left: 24, right: 86, bottom: 17),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: "Search for practitioners or specialties",
+              prefixIcon: Icon(Icons.search),
+            ),
           ),
         ),
+        //bottom section
+        Row(
+          children: [
+            Container(
+              width: 280,
+              margin: const EdgeInsets.only(left: 24),
+              child: Column(
+                children: const [
+                  //calendar
+                  CalendarWidget(),
+                ],
+              ),
+            )
+          ],
+        )
       ],
     );
   }

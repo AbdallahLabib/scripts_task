@@ -6,6 +6,9 @@ ThemeData appTheme() {
   return ThemeData(
     fontFamily: "Roboto",
     scaffoldBackgroundColor: Colors.white,
+    colorScheme: ThemeData().colorScheme.copyWith(
+          primary: AppPalette.primaryColor,
+        ),
     primaryColor: AppPalette.primaryColor,
     dividerColor: Colors.black.withOpacity(0.05),
     appBarTheme: const AppBarTheme(
@@ -70,29 +73,29 @@ ThemeData appTheme() {
 InputDecorationTheme inputDecorationTheme() {
   return const InputDecorationTheme(
     hintStyle: TextStyle(
-      fontSize: 16.0,
-      fontWeight: FontWeight.normal,
+      fontSize: 15.0,
+      fontWeight: FontWeight.w400,
       color: Colors.grey,
     ),
-    contentPadding: EdgeInsets.only(right: 10, left: 10, top: 4, bottom: 0),
-    fillColor: Color(0xffF8F8F8),
+    contentPadding: EdgeInsets.only(right: 10, left: 10, top: 13, bottom: 0),
+    fillColor: Color(0xffF5F5F5),
     filled: true,
     errorMaxLines: 2,
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: AppPalette.primaryColor),
-      borderRadius: BorderRadius.all(Radius.circular(25)),
+      borderSide: BorderSide(color: Colors.transparent),
+      borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: AppPalette.primaryColor),
-      borderRadius: BorderRadius.all(Radius.circular(25)),
+      borderSide: BorderSide(color: Colors.transparent),
+      borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     errorBorder: OutlineInputBorder(
       borderSide: BorderSide(color: Color.fromARGB(255, 240, 24, 8)),
-      borderRadius: BorderRadius.all(Radius.circular(25)),
+      borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     focusedErrorBorder: OutlineInputBorder(
       borderSide: BorderSide(color: Color.fromARGB(255, 240, 24, 8)),
-      borderRadius: BorderRadius.all(Radius.circular(25)),
+      borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
   );
 }

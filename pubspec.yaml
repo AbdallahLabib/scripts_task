@@ -17,6 +17,8 @@ dependencies:
   #UI
   flutter_svg: ^1.1.3
   badges: ^2.0.3
+  intl: ^0.17.0
+  table_calendar: ^3.0.6
 
 dev_dependencies:
   flutter_test:
