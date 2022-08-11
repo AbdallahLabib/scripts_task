@@ -20,8 +20,11 @@ class $AssetsIconsGen {
   /// File path: assets/icons/calendar.svg
   SvgGenImage get calendar => const SvgGenImage('assets/icons/calendar.svg');
 
+  /// File path: assets/icons/clinical.png
+  AssetGenImage get clinicalPng => const AssetGenImage('assets/icons/clinical.png');
+
   /// File path: assets/icons/clinical.svg
-  SvgGenImage get clinical => const SvgGenImage('assets/icons/clinical.svg');
+  SvgGenImage get clinicalSvg => const SvgGenImage('assets/icons/clinical.svg');
 
   /// File path: assets/icons/dashboard.svg
   SvgGenImage get dashboard => const SvgGenImage('assets/icons/dashboard.svg');

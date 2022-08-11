@@ -31,20 +31,34 @@ ThemeData appTheme() {
     ),
     textTheme: const TextTheme(
       bodyText1: TextStyle(
-        fontSize: 16,
+        fontSize: 17,
+        fontWeight: FontWeight.w700,
+        color: AppPalette.primaryColor,
+      ),
+      bodyText2: TextStyle(
+        fontSize: 13.0,
+        fontWeight: FontWeight.w700,
+        color: AppPalette.primaryColor,
+      ),
+      headline1: TextStyle(
+        fontSize: 13.0,
+        fontWeight: FontWeight.w700,
+        color: AppPalette.primaryColor,
+      ),
+      headline2: TextStyle(
+        fontSize: 13.0,
+        fontWeight: FontWeight.w500,
+        color: AppPalette.primaryColor,
+      ),
+      headline3: TextStyle(
+        fontSize: 13.0,
         fontWeight: FontWeight.w400,
-        color: Colors.black,
+        color: AppPalette.primaryColor,
       ),
-      subtitle1: TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.w600,
-        color: Colors.black,
-        height: 1.3,
-      ),
-      subtitle2: TextStyle(
-        fontSize: 16.0,
-        fontWeight: FontWeight.w600,
-        color: Colors.black,
+      headline4: TextStyle(
+        fontSize: 9.0,
+        fontWeight: FontWeight.w700,
+        color: Colors.white,
       ),
     ),
     inputDecorationTheme: inputDecorationTheme(),

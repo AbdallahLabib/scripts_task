@@ -13,6 +13,8 @@ import 'package:scripts_task/shared/style/app_theme.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
+  runApp(MyApp(appRouter: AppRouter()));
+
   runZonedGuarded(() {
     Bloc.observer = AppBlocObserver();
   }, (error, stackTrace) {
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Beetech',
+      title: 'Scripts',
       theme: appTheme(),
       onGenerateRoute: appRouter.onGenerateRoute,
       home: const ResponsiveLayout(
