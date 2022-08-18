@@ -45,23 +45,23 @@ ThemeData appTheme() {
       ),
       headline1: TextStyle(
         fontSize: 13.0,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w500,
         color: AppPalette.primaryColor,
       ),
       headline2: TextStyle(
         fontSize: 13.0,
-        fontWeight: FontWeight.w500,
-        color: AppPalette.primaryColor,
-      ),
-      headline3: TextStyle(
-        fontSize: 13.0,
         fontWeight: FontWeight.w400,
         color: AppPalette.primaryColor,
       ),
-      headline4: TextStyle(
+      headline3: TextStyle(
         fontSize: 9.0,
         fontWeight: FontWeight.w700,
         color: Colors.white,
+      ),
+      headline4: TextStyle(
+        fontSize: 10.0,
+        fontWeight: FontWeight.w700,
+        color: Colors.black,
       ),
     ),
     inputDecorationTheme: inputDecorationTheme(),

@@ -2,9 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scripts_task/responsive/mobile_scaffold.dart';
-import 'package:scripts_task/responsive/responsive_layout.dart';
-import 'package:scripts_task/responsive/tablet_scaffold.dart';
+import 'package:scripts_task/practitioner_screen/cubit/practitioner/practitioner_cubit.dart';
+import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
 import 'package:scripts_task/responsive/web_scaffold.dart';
 import 'package:scripts_task/shared/general/bloc_observer.dart';
 import 'package:scripts_task/shared/general/routes.dart';
@@ -32,15 +31,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Scripts',
-      theme: appTheme(),
-      onGenerateRoute: appRouter.onGenerateRoute,
-      home: const ResponsiveLayout(
-        mobileScaffold: MobileScaffold(),
-        tabletScaffold: TabletScaffold(),
-        webScaffold: WebScaffold(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => SettingsCubit()),
+        BlocProvider(create: (_) => PractitionerCubit()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Scripts',
+        theme: appTheme(),
+        onGenerateRoute: appRouter.onGenerateRoute,
+        home: const WebScaffold(),
       ),
     );
   }

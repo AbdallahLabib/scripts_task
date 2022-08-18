@@ -32,6 +32,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/dummyUser.svg
   SvgGenImage get dummyUser => const SvgGenImage('assets/icons/dummyUser.svg');
 
+  /// File path: assets/icons/firstTime.svg
+  SvgGenImage get firstTime => const SvgGenImage('assets/icons/firstTime.svg');
+
   /// File path: assets/icons/followUp.svg
   SvgGenImage get followUp => const SvgGenImage('assets/icons/followUp.svg');
 

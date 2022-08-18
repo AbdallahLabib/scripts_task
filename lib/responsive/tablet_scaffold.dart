@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scripts_task/practitioner_screen/presentation/screens/fixed_side_drawer.dart';
+import 'package:scripts_task/practitioner_screen/presentation/screens/practitioner_screen.dart';
 
 class TabletScaffold extends StatelessWidget {
   const TabletScaffold({Key? key}) : super(key: key);
@@ -8,25 +9,12 @@ class TabletScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
-        children: [
-          Container(
-            width: 56,
-            color: Colors.black,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 32, horizontal: 10),
-                  child: SvgPicture.asset("assets/icons/logo.svg"),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Container(
-              color: Colors.red,
-            ),
-          ),
+        children: const [
+          //Fixed side drawer
+          FixedSideDrawer(),
+
+          //Practitioner screen
+          PractitionerScreen(),
         ],
       ),
     );
