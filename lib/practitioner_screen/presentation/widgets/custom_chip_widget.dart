@@ -154,7 +154,7 @@ class ChipWidgetWithImageAndMaxRowSize extends ChipWidget {
     required super.onTap,
     required super.isSelected,
     required super.label,
-    required super.iconPath,
+    super.iconPath,
     required super.isMaxSize,
     required super.isSVG,
   }) : super(key: key);

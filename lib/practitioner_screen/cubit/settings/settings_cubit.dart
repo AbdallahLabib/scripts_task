@@ -37,6 +37,36 @@ class SettingsCubit extends Cubit<SettingsState> {
     emit(ChangeCreateAppointmentVisibilityState());
   }
 
+  int selectedAppointmentTypeIndex = 0;
+
+  List<Selections> appointmentType = [
+    Selections(id: 0, label: "General"),
+    Selections(id: 1, label: "Group"),
+    Selections(id: 2, label: "Block Slot"),
+    Selections(id: 3, label: "Advanced"),
+    Selections(id: 4, label: "Walk In"),
+  ];
+
+  changeToSelectedAppointmentType(int currIndex) {
+    selectedAppointmentTypeIndex = currIndex;
+    emit(ChangeToSelectedAppointmentTypeIndexState());
+  }
+
+  int selectedAppointmentFilterIndex = 0;
+
+  List<Selections> appointmentFilter = [
+    Selections(id: 0, label: "Practitioner"),
+    Selections(id: 1, label: "Profile, date & time"),
+    Selections(id: 2, label: "Service & payment"),
+    Selections(id: 3, label: "Patient"),
+    Selections(id: 4, label: "Notes"),
+  ];
+
+  changeToSelectedAppointmentFilter(int currIndex) {
+    selectedAppointmentFilterIndex = currIndex;
+    emit(ChangeToSelectedAppointmentFilterIndexState());
+  }
+
   ///calendar
   DateTime focusedDay = DateTime.now();
   DateTime? selectedDay;

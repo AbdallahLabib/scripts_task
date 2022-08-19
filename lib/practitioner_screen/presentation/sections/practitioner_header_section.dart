@@ -28,41 +28,47 @@ class _PractitionerHeaderSectionState extends State<PractitionerHeaderSection> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //title
+            //title & buttons
             Padding(
               padding: const EdgeInsets.only(top: 32, bottom: 16, left: 28),
               child: Row(
                 children: [
-                  InkWell(
-                    onTap: () => cubit.changeVisibility(),
-                    borderRadius: BorderRadius.circular(10),
-                    child: Transform.scale(
-                      scale: 0.8,
-                      child: Icon(
-                        cubit.isOpen
-                            ? CupertinoIcons.left_chevron
-                            : CupertinoIcons.right_chevron,
-                        color: AppPalette.primaryColor,
-                      ),
-                    ),
-                  ),
-                  Transform.scale(
-                    scale: 0.8,
-                    child: const Icon(
-                      CupertinoIcons.minus,
-                      color: AppPalette.primaryColor,
-                    ),
-                  ),
-                  Transform.scale(
-                    scale: 0.8,
-                    child: const Icon(
-                      CupertinoIcons.xmark,
-                      color: AppPalette.primaryColor,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 12,
-                  ),
+                  cubit.isOpen
+                      ? Container()
+                      : InkWell(
+                          onTap: () => cubit.changeVisibility(),
+                          borderRadius: BorderRadius.circular(10),
+                          child: Transform.scale(
+                            scale: 0.8,
+                            child: const Icon(
+                              CupertinoIcons.right_chevron,
+                              color: AppPalette.primaryColor,
+                            ),
+                          ),
+                        ),
+                  cubit.isOpen
+                      ? Container()
+                      : Transform.scale(
+                          scale: 0.8,
+                          child: const Icon(
+                            CupertinoIcons.minus,
+                            color: AppPalette.primaryColor,
+                          ),
+                        ),
+                  cubit.isOpen
+                      ? Container()
+                      : Transform.scale(
+                          scale: 0.8,
+                          child: const Icon(
+                            CupertinoIcons.xmark,
+                            color: AppPalette.primaryColor,
+                          ),
+                        ),
+                  cubit.isOpen
+                      ? Container()
+                      : const SizedBox(
+                          width: 12,
+                        ),
                   Text(
                     "Practitioner",
                     style: Theme.of(context).textTheme.bodyText1,

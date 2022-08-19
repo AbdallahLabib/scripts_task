@@ -10,6 +10,10 @@ class ChangeToSelectedDrawerIconIndexState extends SettingsState {}
 ///create appointment
 class ChangeCreateAppointmentVisibilityState extends SettingsState{}
 
+class ChangeToSelectedAppointmentTypeIndexState extends SettingsState{}
+
+class ChangeToSelectedAppointmentFilterIndexState extends SettingsState{}
+
 ///calendar
 class MonthToLeftState extends SettingsState {}
 
