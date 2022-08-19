@@ -8,13 +8,16 @@ class CreateAppointmentSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 24, top: 16),
+      margin: const EdgeInsets.only(top: 16),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           //Appointment Type Selections
-          AppointmentTypeSelections(),
+          Padding(
+            padding: EdgeInsets.only(left: 24),
+            child: AppointmentTypeSelections(),
+          ),
 
           SizedBox(
             height: 32,

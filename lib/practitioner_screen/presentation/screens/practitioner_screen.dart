@@ -50,7 +50,7 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                       Visibility(
                         visible: cubit.isOpen,
                         child: Expanded(
-                          flex: 39,
+                          flex: 44,
                           child: ListView(
                             children: const [
                               CreateAppointmentHeaderSection(),
@@ -59,7 +59,7 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                           ),
                         ),
                       ),
-                      
+
                       Visibility(
                         visible: cubit.isOpen,
                         child: VerticalDivider(
@@ -68,7 +68,6 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                         ),
                       ),
 
-                      
                       Expanded(
                         flex: 100,
                         child: ListView(
