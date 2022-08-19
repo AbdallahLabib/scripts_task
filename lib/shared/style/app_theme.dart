@@ -5,6 +5,32 @@ import 'package:scripts_task/shared/style/app_pallete.dart';
 ThemeData appTheme() {
   return ThemeData(
     fontFamily: "Roboto",
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+          (states) {
+            if (states.contains(MaterialState.hovered)) {
+              return AppPalette.primaryColor;
+            }
+            if (states.contains(MaterialState.pressed)) {
+              return AppPalette.primaryColor;
+            }
+            if (states.contains(MaterialState.selected)) {
+              return Colors.red;
+            }
+            return AppPalette.inactiveColor;
+          },
+        ),
+        foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+          (states) {
+            if (states.contains(MaterialState.hovered)) {
+              return Colors.white;
+            }
+            return AppPalette.primaryColor;
+          },
+        ),
+      ),
+    ),
     scaffoldBackgroundColor: Colors.white,
     colorScheme: ThemeData().colorScheme.copyWith(
           primary: AppPalette.primaryColor,
