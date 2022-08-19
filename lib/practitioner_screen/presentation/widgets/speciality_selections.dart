@@ -30,7 +30,7 @@ class _SpecialitySelectionsState extends State<SpecialitySelections> {
               .map((e) => ChipWidgetWithSVG(
                     label: e.label,
                     isSelected: e.id == cubit.selectedSpecialityIndex,
-                    onTap: () => cubit.changeToSelectedSpeciality(e.id),
+                    onTap: () => cubit.changeSelectedSpeciality(e.id),
                   ))
               .toList(),
         );

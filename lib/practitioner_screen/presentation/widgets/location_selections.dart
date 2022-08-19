@@ -31,7 +31,7 @@ class _LocationSelectionsState extends State<LocationSelections> {
                     label: e.label,
                     iconPath: e.icon,
                     isSelected: e.id == cubit.selectedLocationIndex,
-                    onTap: () => cubit.changeToSelectedLocation(e.id),
+                    onTap: () => cubit.changeSelectedLocation(e.id),
                   ))
               .toList(),
         );

@@ -32,7 +32,7 @@ class _FixedDrawerItemState extends State<FixedDrawerItem> {
     return BlocBuilder<SettingsCubit, SettingsState>(
       builder: (context, state) {
         return InkWell(
-          onTap: () => cubit.changeToSelectedDrawerIconIndex(widget.id),
+          onTap: () => cubit.changeSelectedDrawerIconIndex(widget.id),
           child: cubit.selectedDrawerIconIndex == widget.id
               ? Container(
                   padding:

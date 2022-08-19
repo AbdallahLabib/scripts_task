@@ -31,7 +31,7 @@ class _TypesSelectionsState extends State<TypesSelections> {
                     label: e.label,
                     iconPath: e.icon,
                     isSelected: e.id == cubit.selectedTypeIndex,
-                    onTap: () => cubit.changeToSelectedType(e.id),
+                    onTap: () => cubit.changeSelectedType(e.id),
                   ))
               .toList(),
         );

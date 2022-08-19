@@ -28,8 +28,7 @@ class _AppointmentFilterSelectionsState
         return Column(
             children: cubit.appointmentFilter
                 .map((e) => InkWell(
-                      onTap: () =>
-                          cubit.changeToSelectedAppointmentFilter(e.id),
+                      onTap: () => cubit.changeSelectedAppointmentFilter(e.id),
                       child: Container(
                         height: 56,
                         color: e.id == cubit.selectedAppointmentFilterIndex

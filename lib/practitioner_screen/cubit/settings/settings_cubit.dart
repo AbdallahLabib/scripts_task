@@ -24,7 +24,7 @@ class SettingsCubit extends Cubit<SettingsState> {
     "Help",
   ];
 
-  changeToSelectedDrawerIconIndex(int currIndex) {
+  changeSelectedDrawerIconIndex(int currIndex) {
     selectedDrawerIconIndex = currIndex;
     emit(ChangeToSelectedDrawerIconIndexState());
   }
@@ -47,10 +47,22 @@ class SettingsCubit extends Cubit<SettingsState> {
     Selections(id: 4, label: "Walk In"),
   ];
 
-  changeToSelectedAppointmentType(int currIndex) {
+  changeSelectedAppointmentType(int currIndex) {
     selectedAppointmentTypeIndex = currIndex;
     emit(ChangeToSelectedAppointmentTypeIndexState());
   }
+
+/*   bool isHovering = false;
+  onHoverAppointmentType(bool hoverState) {
+    isHovering = hoverState;
+    emit(ChangeHoveringState());
+  }
+
+  int hoverIndex = 0;
+  changeHoverState(int currIndex) {
+    hoverIndex = currIndex;
+    emit(ChangeHoveringState());
+  } */
 
   int selectedAppointmentFilterIndex = 0;
 
@@ -62,7 +74,7 @@ class SettingsCubit extends Cubit<SettingsState> {
     Selections(id: 4, label: "Notes"),
   ];
 
-  changeToSelectedAppointmentFilter(int currIndex) {
+  changeSelectedAppointmentFilter(int currIndex) {
     selectedAppointmentFilterIndex = currIndex;
     emit(ChangeToSelectedAppointmentFilterIndexState());
   }
@@ -129,7 +141,7 @@ class SettingsCubit extends Cubit<SettingsState> {
     Selections(id: 5, label: "+3 more"),
   ];
 
-  changeToSelectedSpeciality(int currIndex) {
+  changeSelectedSpeciality(int currIndex) {
     selectedSpecialityIndex = currIndex;
     emit(ChangeToSelectedSpecialityIndexState());
   }
@@ -143,7 +155,7 @@ class SettingsCubit extends Cubit<SettingsState> {
     Selections(id: 2, label: "virtual", icon: Assets.icons.video.path),
   ];
 
-  changeToSelectedLocation(int currIndex) {
+  changeSelectedLocation(int currIndex) {
     selectedLocationIndex = currIndex;
     emit(ChangeToSelectedLocationIndexState());
   }
@@ -157,7 +169,7 @@ class SettingsCubit extends Cubit<SettingsState> {
     Selections(id: 2, label: "Walk In", icon: Assets.icons.walkIn.path),
   ];
 
-  changeToSelectedType(int currIndex) {
+  changeSelectedType(int currIndex) {
     selectedTypeIndex = currIndex;
     emit(ChangeToSelectedTypeIndexState());
   }
@@ -172,7 +184,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         icon: Assets.images.hospital.path),
   ];
 
-  changeToSelectedPractice(int currIndex) {
+  changeSelectedPractice(int currIndex) {
     selectedTypeIndex = currIndex;
     emit(ChangeToSelectedPracticeIndexState());
   }

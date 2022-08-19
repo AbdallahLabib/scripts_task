@@ -12,6 +12,9 @@ class ChangeCreateAppointmentVisibilityState extends SettingsState{}
 
 class ChangeToSelectedAppointmentTypeIndexState extends SettingsState{}
 
+class ChangeHoveringState extends SettingsState{}
+
+
 class ChangeToSelectedAppointmentFilterIndexState extends SettingsState{}
 
 ///calendar

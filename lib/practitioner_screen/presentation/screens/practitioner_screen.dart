@@ -50,7 +50,7 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                       Visibility(
                         visible: cubit.isOpen,
                         child: Expanded(
-                          flex: 44,
+                          flex: 40,
                           child: ListView(
                             children: const [
                               CreateAppointmentHeaderSection(),
@@ -59,7 +59,7 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                           ),
                         ),
                       ),
-
+                      //Create Appointment Vertical Divider
                       Visibility(
                         visible: cubit.isOpen,
                         child: VerticalDivider(
@@ -68,6 +68,7 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                         ),
                       ),
 
+                      //Practitioner Header & Section
                       Expanded(
                         flex: 100,
                         child: ListView(
@@ -157,11 +158,14 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                                             desktop: PractitionersGridSection(
                                               crossAxisCount:
                                                   cubit.isOpen ? 2 : 3,
-                                              childAspectRatio:
-                                                  _size.width < 1240
-                                                      ? 2.2
-                                                      : _size.width < 1295
-                                                          ? 2.3
+                                              childAspectRatio: _size.width <
+                                                      1240
+                                                  ? 2.2
+                                                  : _size.width < 1295
+                                                      ? 2.3
+                                                      : _size.width < 1390 &&
+                                                              cubit.isOpen
+                                                          ? 2.2
                                                           : _size.width < 1390
                                                               ? 2.5
                                                               : 2.8,

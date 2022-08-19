@@ -31,7 +31,7 @@ class _AppointmentTypeSelectionsState extends State<AppointmentTypeSelections> {
               .map((e) => ChipWidgetWithSVG(
                     label: e.label,
                     isSelected: e.id == cubit.selectedAppointmentTypeIndex,
-                    onTap: () => cubit.changeToSelectedAppointmentType(e.id),
+                    onTap: () => cubit.changeSelectedAppointmentType(e.id),
                   ))
               .toList(),
         );

@@ -33,7 +33,7 @@ class _PracticeSelectionsState extends State<PracticeSelections> {
                     isMaxSize: true,
                     isSVG: false,
                     isSelected: e.id == cubit.selectedPracticeIndex,
-                    onTap: () => cubit.changeToSelectedPractice(e.id),
+                    onTap: () => cubit.changeSelectedPractice(e.id),
                   ))
               .toList(),
         );
