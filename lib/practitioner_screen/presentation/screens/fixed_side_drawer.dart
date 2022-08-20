@@ -13,6 +13,7 @@ class FixedSideDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 58.w,
+      //height: 944.h,
       color: Colors.black,
       child: CustomScrollView(
         slivers: [
@@ -76,7 +77,7 @@ class FixedSideDrawer extends StatelessWidget {
                       '34',
                       style: Theme.of(context).textTheme.headline3,
                     ),
-                    padding:  const EdgeInsets.all(4).r,
+                    padding: const EdgeInsets.all(4).r,
                     position: BadgePosition.topEnd(),
                     badgeColor: const Color(0xffEE6464),
                     child: Assets.icons.notifications
@@ -94,8 +95,9 @@ class FixedSideDrawer extends StatelessWidget {
 
                 //user image
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 30, top: 7),
+                  padding: EdgeInsets.only(bottom: 30.h, top: 7.h),
                   child: CircleAvatar(
+                    radius: 25.r,
                     backgroundImage: AssetImage(Assets.images.femaleUser.path),
                   ),
                 ),

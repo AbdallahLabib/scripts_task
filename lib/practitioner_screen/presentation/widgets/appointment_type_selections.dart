@@ -29,7 +29,7 @@ class _AppointmentTypeSelectionsState extends State<AppointmentTypeSelections> {
           spacing: 5.w,
           runSpacing: 8.h,
           children: cubit.appointmentType
-              .map((e) => ChipWidgetWithSVG(
+              .map((e) => CustomChipWidget(
                     label: e.label,
                     isSelected: e.id == cubit.selectedAppointmentTypeIndex,
                     onTap: () => cubit.changeSelectedAppointmentType(e.id),

@@ -28,7 +28,7 @@ class _SpecialitySelectionsState extends State<SpecialitySelections> {
           spacing: 5.w,
           runSpacing: 8.h,
           children: cubit.labels
-              .map((e) => ChipWidgetWithSVG(
+              .map((e) => CustomChipWidget(
                     label: e.label,
                     isSelected: e.id == cubit.selectedSpecialityIndex,
                     onTap: () => cubit.changeSelectedSpeciality(e.id),

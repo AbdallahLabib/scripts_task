@@ -28,7 +28,7 @@ class _TypesSelectionsState extends State<TypesSelections> {
           spacing: 5.w,
           runSpacing: 8.h,
           children: cubit.types
-              .map((e) => ChipWidgetWithSVG(
+              .map((e) => CustomChipWidget(
                     label: e.label,
                     iconPath: e.icon,
                     isSelected: e.id == cubit.selectedTypeIndex,

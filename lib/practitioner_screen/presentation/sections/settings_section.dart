@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/calendar_widget.dart';
+import 'package:scripts_task/practitioner_screen/presentation/widgets/custom_chip_widget.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/location_selections.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/practice_selections.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/slider_widget.dart';
@@ -100,27 +101,14 @@ class SettingsSection extends StatelessWidget {
           //show all
           Container(
             width: 268.w,
-            height: 32.h,
+            height: 40.h,
             margin: EdgeInsets.symmetric(vertical: 7.h),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               border: Border.all(color: AppPalette.inactiveColor),
             ),
-            child: InkWell(
-              onTap: () {},
-              hoverColor: AppPalette.primaryColor,
-              borderRadius: BorderRadius.circular(9.r),
-              child: Center(
-                //TODO:: Hover color for text
-                child: Text(
-                  "Show All",
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-              ),
-            ),
+            child: CustomChipWidget(onTap: () {}, label: "Show All"),
           ),
-
-          SizedBox(height: 20.h),
         ],
       ),
     );

@@ -10,7 +10,7 @@ class CreateAppointmentSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 16.h),
-      height: 812.h,
+      height: 840.h,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

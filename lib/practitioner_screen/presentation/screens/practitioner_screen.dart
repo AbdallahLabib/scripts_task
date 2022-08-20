@@ -24,7 +24,6 @@ class PractitionerScreen extends StatefulWidget {
 
 class _PractitionerScreenState extends State<PractitionerScreen> {
   final ScrollController _scrollController = ScrollController();
-  final ScrollController _scrollController2 = ScrollController();
 
   late final SettingsCubit cubit;
 
@@ -52,10 +51,9 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                     //Create Appointment Header & Section
                     Visibility(
                       visible: cubit.isOpen,
-                      child: Expanded(
-                        flex: 40,
-                        child: ListView(
-                          controller: _scrollController2,
+                      child: SizedBox(
+                        width: 392.w,
+                        child: Column(
                           children: const [
                             CreateAppointmentHeaderSection(),
                             CreateAppointmentSection(),
@@ -89,7 +87,7 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                                   imagePath: Assets.images.maleUser.path,
                                 )
                               : SizedBox(
-                                  height: 803.h,
+                                  height: 900.h,
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -141,56 +139,21 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                                                 mobile:
                                                     PractitionersGridSection(
                                                   crossAxisCount: 1,
-                                                  childAspectRatio:
-                                                      _size.width < 945
-                                                          ? 3.8
-                                                          : 1,
+                                                  childAspectRatio: 10.sp,
                                                 ),
                                                 tablet:
                                                     PractitionersGridSection(
                                                   crossAxisCount: 2,
-                                                  childAspectRatio: _size
-                                                              .width <
-                                                          900
-                                                      ? 1.75
-                                                      : _size.width < 920
-                                                          ? 1.9
-                                                          : _size.width < 940
-                                                              ? 2.0
-                                                              : _size.width <
-                                                                      975
-                                                                  ? 2.1
-                                                                  : _size.width <
-                                                                          1005
-                                                                      ? 2.25
-                                                                      : _size.width <=
-                                                                              1045
-                                                                          ? 2.4
-                                                                          : _size.width < 1090
-                                                                              ? 2.6
-                                                                              : _size.width < 1130
-                                                                                  ? 2.8
-                                                                                  : 3,
+                                                  childAspectRatio: 4.8.sp,
                                                 ),
-                                                desktop: PractitionersGridSection(
-                                                    crossAxisCount:
-                                                        cubit.isOpen ? 2 : 3,
-                                                    childAspectRatio: 2.8
-                                                    /* _size
-                                                              .width <
-                                                          1240
-                                                      ? 2.2
-                                                      : _size.width < 1295
-                                                          ? 2.3
-                                                          : _size.width <
-                                                                      1390 &&
-                                                                  cubit.isOpen
-                                                              ? 2.2
-                                                              : _size.width <
-                                                                      1390
-                                                                  ? 2.5
-                                                                  : 2.8, */
-                                                    ),
+                                                desktop:
+                                                    PractitionersGridSection(
+                                                  crossAxisCount:
+                                                      cubit.isOpen ? 2 : 3,
+                                                  childAspectRatio: cubit.isOpen
+                                                      ? 2.35
+                                                      : 2.7.sp,
+                                                ),
                                               )
                                             ],
                                           ),

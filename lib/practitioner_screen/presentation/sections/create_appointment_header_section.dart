@@ -27,8 +27,8 @@ class _CreateAppointmentHeaderSectionState
   Widget build(BuildContext context) {
     return BlocBuilder<SettingsCubit, SettingsState>(
       builder: (context, state) {
-        return Padding(
-          padding: EdgeInsets.only(top: 32.h, bottom: 16.h, left: 24.w),
+        return Container(
+          margin: EdgeInsets.only(top: 32.h, bottom: 16.h, left: 24.w),
           child: Row(
             children: [
               Padding(
