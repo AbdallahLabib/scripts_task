@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
 import 'package:scripts_task/shared/style/app_pallete.dart';
 
@@ -31,7 +32,7 @@ class _SliderWidgetState extends State<SliderWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 11),
+                  padding: EdgeInsets.only(bottom: 11.h),
                   child: Text(
                     "Time",
                     style: Theme.of(context).textTheme.bodyText2,
@@ -47,13 +48,11 @@ class _SliderWidgetState extends State<SliderWidget> {
               data: SliderTheme.of(context).copyWith(
                 activeTrackColor: AppPalette.primaryColor,
                 inactiveTrackColor: AppPalette.inactiveColor,
-                trackHeight: 0.5,
+                trackHeight: 0.5.h,
                 thumbColor: Colors.white,
-                thumbShape:
-                    const RoundSliderThumbShape(enabledThumbRadius: 12.0),
+                thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0.r),
                 overlayColor: AppPalette.primaryColor,
-                overlayShape:
-                    const RoundSliderOverlayShape(overlayRadius: 12.0),
+                overlayShape: RoundSliderOverlayShape(overlayRadius: 16.0.r),
               ),
               child: RangeSlider(
                 values: cubit.range,

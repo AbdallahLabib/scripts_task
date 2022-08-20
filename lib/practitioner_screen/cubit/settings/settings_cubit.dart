@@ -33,6 +33,7 @@ class SettingsCubit extends Cubit<SettingsState> {
   bool isOpen = false;
 
   changeVisibility() {
+    selectedAppointmentFilterIndex = 0;
     isOpen = !isOpen;
     emit(ChangeCreateAppointmentVisibilityState());
   }

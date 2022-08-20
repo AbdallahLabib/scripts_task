@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/calendar_widget.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/location_selections.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/practice_selections.dart';
@@ -16,8 +17,8 @@ class SettingsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 268,
-      margin: const EdgeInsets.only(left: 24),
+      width: 268.w,
+      margin: EdgeInsets.only(left: 24.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +28,7 @@ class SettingsSection extends StatelessWidget {
 
           //soonest availability
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 24),
+            padding: EdgeInsets.symmetric(vertical: 24.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -45,7 +46,7 @@ class SettingsSection extends StatelessWidget {
 
           //speciality
           Padding(
-            padding: const EdgeInsets.only(top: 24, bottom: 8),
+            padding: EdgeInsets.only(top: 24.h, bottom: 8.h),
             child: Text(
               "Speciality ",
               style: Theme.of(context).textTheme.bodyText2,
@@ -56,7 +57,7 @@ class SettingsSection extends StatelessWidget {
 
           //location
           Padding(
-            padding: const EdgeInsets.only(top: 24, bottom: 8),
+            padding: EdgeInsets.only(top: 24.h, bottom: 8.h),
             child: Text(
               "Location ",
               style: Theme.of(context).textTheme.bodyText2,
@@ -67,7 +68,7 @@ class SettingsSection extends StatelessWidget {
 
           //type
           Padding(
-            padding: const EdgeInsets.only(top: 24, bottom: 8),
+            padding: EdgeInsets.only(top: 24.h, bottom: 8.h),
             child: Text(
               "Type",
               style: Theme.of(context).textTheme.bodyText2,
@@ -78,7 +79,7 @@ class SettingsSection extends StatelessWidget {
 
           //practice
           Padding(
-            padding: const EdgeInsets.only(top: 24, bottom: 8),
+            padding: EdgeInsets.only(top: 24.h, bottom: 8.h),
             child: Row(
               children: [
                 Text(
@@ -98,17 +99,17 @@ class SettingsSection extends StatelessWidget {
           const PracticeSelections(),
           //show all
           Container(
-            width: 268,
-            height: 32,
-            margin: const EdgeInsets.symmetric(vertical: 7),
+            width: 268.w,
+            height: 32.h,
+            margin: EdgeInsets.symmetric(vertical: 7.h),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               border: Border.all(color: AppPalette.inactiveColor),
             ),
             child: InkWell(
               onTap: () {},
               hoverColor: AppPalette.primaryColor,
-              borderRadius: BorderRadius.circular(9),
+              borderRadius: BorderRadius.circular(9.r),
               child: Center(
                 //TODO:: Hover color for text
                 child: Text(
@@ -119,7 +120,7 @@ class SettingsSection extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
         ],
       ),
     );

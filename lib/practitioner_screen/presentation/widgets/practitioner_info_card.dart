@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/next_shift_container.dart';
 
@@ -17,7 +18,9 @@ class PractitionerInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8),
+      width: 318.w,
+      height: 116.h,
+      padding: const EdgeInsets.all(8).r,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -40,10 +43,10 @@ class PractitionerInfoCard extends StatelessWidget {
                   children: [
                     //Image
                     Padding(
-                      padding: const EdgeInsets.only(right: 8),
+                      padding: EdgeInsets.only(right: 8.w),
                       child: id == 0
                           ? CircleAvatar(
-                              radius: 14,
+                              radius: 14.r,
                               backgroundImage: AssetImage(imagePath),
                             )
                           : SvgPicture.asset(imagePath),
@@ -69,17 +72,17 @@ class PractitionerInfoCard extends StatelessWidget {
               InkWell(
                 onTap: () {},
                 child: Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5).r,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                     border: Border.all(
                       color: const Color(0xffEFEEEE),
                     ),
                   ),
                   child: Text(
                     "Select",
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ),
               ),
@@ -88,17 +91,17 @@ class PractitionerInfoCard extends StatelessWidget {
 
           //shifts
           Padding(
-            padding: const EdgeInsets.only(top: 4),
+            padding: EdgeInsets.only(top: 4.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   "2 shifts: 9.00a - 1.00p  ",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
                 Container(
-                  width: 3,
-                  height: 3,
+                  width: 3.r,
+                  height: 3.r,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.black,
@@ -106,7 +109,7 @@ class PractitionerInfoCard extends StatelessWidget {
                 ),
                 Text(
                   "  5.00a - 7.00p",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
               ],
             ),
@@ -114,19 +117,19 @@ class PractitionerInfoCard extends StatelessWidget {
 
           //office slots
           Padding(
-            padding: const EdgeInsets.only(top: 4),
+            padding: EdgeInsets.only(top: 4.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   "20 office slots ",
-                  style: Theme.of(context).textTheme.headline4!.copyWith(
+                  style: Theme.of(context).textTheme.headline5!.copyWith(
                         decoration: TextDecoration.underline,
                       ),
                 ),
                 Text(
                   "on May 22",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
               ],
             ),
@@ -140,7 +143,7 @@ class PractitionerInfoCard extends StatelessWidget {
             children: [
               Text(
                 "Next: ",
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headline5,
               ),
               const NextShiftContainer(title: "9:30a"),
               const NextShiftContainer(title: "2:00p"),

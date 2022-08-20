@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scripts_task/shared/style/app_pallete.dart';
 
 ThemeData appTheme() {
@@ -37,56 +38,61 @@ ThemeData appTheme() {
         ),
     primaryColor: AppPalette.primaryColor,
     dividerColor: Colors.black.withOpacity(0.05),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       titleTextStyle: TextStyle(
         color: Colors.white,
-        fontSize: 16.0,
+        fontSize: 16.0.sp,
         fontWeight: FontWeight.bold,
       ),
       centerTitle: true,
-      titleSpacing: 19.0,
-      actionsIconTheme: IconThemeData(
+      titleSpacing: 19.0.sp,
+      actionsIconTheme: const IconThemeData(
         color: Colors.white,
       ),
-      systemOverlayStyle: SystemUiOverlayStyle(
+      systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
       ),
       backgroundColor: AppPalette.primaryColor,
-      iconTheme: IconThemeData(
+      iconTheme: const IconThemeData(
         color: Colors.white,
       ),
       elevation: 0.0,
     ),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       bodyText1: TextStyle(
-        fontSize: 17,
+        fontSize: 17.sp,
         fontWeight: FontWeight.w700,
         color: AppPalette.primaryColor,
       ),
       bodyText2: TextStyle(
-        fontSize: 13.0,
+        fontSize: 13.0.sp,
         fontWeight: FontWeight.w700,
         color: AppPalette.primaryColor,
       ),
       headline1: TextStyle(
-        fontSize: 13.0,
+        fontSize: 13.0.sp,
         fontWeight: FontWeight.w500,
         color: AppPalette.primaryColor,
       ),
       headline2: TextStyle(
-        fontSize: 13.0,
+        fontSize: 13.0.sp,
         fontWeight: FontWeight.w400,
         color: AppPalette.primaryColor,
       ),
       headline3: TextStyle(
-        fontSize: 9.0,
+        fontSize: 9.0.sp,
         fontWeight: FontWeight.w700,
         color: Colors.white,
       ),
       headline4: TextStyle(
-        fontSize: 10.0,
-        fontWeight: FontWeight.w700,
+        fontSize: 11.0.sp,
+        fontWeight: FontWeight.w400,
+        color: Colors.black,
+      ),
+      headline5: TextStyle(
+        fontSize: 13.0.sp,
+        fontWeight: FontWeight.w400,
         color: Colors.black,
       ),
     ),
@@ -97,31 +103,32 @@ ThemeData appTheme() {
 }
 
 InputDecorationTheme inputDecorationTheme() {
-  return const InputDecorationTheme(
+  return InputDecorationTheme(
     hintStyle: TextStyle(
-      fontSize: 15.0,
+      fontSize: 15.0.sp,
       fontWeight: FontWeight.w400,
       color: Colors.grey,
     ),
-    contentPadding: EdgeInsets.only(right: 10, left: 10, top: 13, bottom: 0),
-    fillColor: Color(0xffF5F5F5),
+    contentPadding:
+        const EdgeInsets.only(right: 10, left: 10, top: 13, bottom: 0),
+    fillColor: const Color(0xffF5F5F5),
     filled: true,
     errorMaxLines: 2,
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.transparent),
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderSide: const BorderSide(color: Colors.transparent),
+      borderRadius: BorderRadius.all(Radius.circular(10.r)),
     ),
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.transparent),
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderSide: const BorderSide(color: Colors.transparent),
+      borderRadius: BorderRadius.all(Radius.circular(10.r)),
     ),
     errorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Color.fromARGB(255, 240, 24, 8)),
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderSide: const BorderSide(color: Color.fromARGB(255, 240, 24, 8)),
+      borderRadius: BorderRadius.all(Radius.circular(10.r)),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Color.fromARGB(255, 240, 24, 8)),
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderSide: const BorderSide(color: Color.fromARGB(255, 240, 24, 8)),
+      borderRadius: BorderRadius.all(Radius.circular(10.r)),
     ),
   );
 }

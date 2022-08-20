@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:scripts_task/shared/style/app_pallete.dart';
@@ -32,9 +33,9 @@ abstract class ChipWidget extends StatelessWidget {
         toAnimate: false,
         elevation: 0,
         shape: BadgeShape.square,
-        padding: const EdgeInsets.all(7),
+        padding: const EdgeInsets.all(7).r,
         badgeColor: isSelected ? AppPalette.primaryColor : Colors.white,
-        borderRadius: BorderRadius.circular(9),
+        borderRadius: BorderRadius.circular(9.r),
         borderSide: BorderSide(
           color: isSelected
               ? AppPalette.primaryColor
@@ -56,7 +57,7 @@ abstract class ChipWidget extends StatelessWidget {
                 children: [
                   //icon
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    padding: EdgeInsets.symmetric(horizontal: 4.0.w),
                     child: isSVG
                         ? SvgPicture.asset(
                             iconPath,
@@ -65,7 +66,7 @@ abstract class ChipWidget extends StatelessWidget {
                                 : AppPalette.primaryColor,
                           )
                         : CircleAvatar(
-                            radius: 12,
+                            radius: 12.r,
                             backgroundImage: AssetImage(iconPath),
                           ),
                   ),

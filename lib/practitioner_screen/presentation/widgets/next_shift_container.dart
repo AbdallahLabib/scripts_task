@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NextShiftContainer extends StatelessWidget {
   final String title;
@@ -11,18 +12,18 @@ class NextShiftContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(3),
-      margin: const EdgeInsets.only(right: 3),
+      padding: const EdgeInsets.all(5).r,
+      margin: EdgeInsets.only(right: 3.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(3),
+        borderRadius: BorderRadius.circular(3.r),
         border: Border.all(
           color: const Color(0xffEFEEEE),
         ),
       ),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.headline4,
+        style: Theme.of(context).textTheme.bodyText2,
       ),
     );
   }

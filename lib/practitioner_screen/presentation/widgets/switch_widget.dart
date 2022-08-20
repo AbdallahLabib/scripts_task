@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
 import 'package:scripts_task/shared/style/app_pallete.dart';
 
@@ -24,8 +25,8 @@ class _SwitchWidgetState extends State<SwitchWidget> {
     return BlocBuilder<SettingsCubit, SettingsState>(
       builder: (context, state) {
         return SizedBox(
-          width: 30,
-          height: 20,
+          width: 30.sp,
+          height: 20.sp,
           child: FittedBox(
             fit: BoxFit.fill,
             child: CupertinoSwitch(

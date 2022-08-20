@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:scripts_task/practitioner_screen/cubit/practitioner/practitioner_cubit.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/practitioner_info_card.dart';
@@ -34,15 +35,15 @@ class _PractitionersGridSectionState extends State<PractitionersGridSection> {
     return BlocBuilder<PractitionerCubit, PractitionerState>(
       builder: (context, state) {
         return SizedBox(
-          height: 754,
+          height: 765.h,
           child: GridView.builder(
             itemCount: cubit.practitioners.length,
             controller: _scrollController,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: widget.crossAxisCount,
               childAspectRatio: widget.childAspectRatio,
-              mainAxisSpacing: 5,
-              crossAxisSpacing: 5,
+              mainAxisSpacing: 5.w,
+              crossAxisSpacing: 5.h,
             ),
             itemBuilder: (context, index) {
               return PractitionerInfoCard(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
 import 'package:scripts_task/shared/style/app_pallete.dart';
 
@@ -30,7 +31,7 @@ class _AppointmentFilterSelectionsState
                 .map((e) => InkWell(
                       onTap: () => cubit.changeSelectedAppointmentFilter(e.id),
                       child: Container(
-                        height: 56,
+                        height: 56.h,
                         color: e.id == cubit.selectedAppointmentFilterIndex
                             ? AppPalette.inactiveColor.withOpacity(0.2)
                             : Colors.white,
@@ -38,8 +39,7 @@ class _AppointmentFilterSelectionsState
                           children: [
                             Expanded(
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 24),
+                                padding: EdgeInsets.symmetric(horizontal: 24.w),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -50,7 +50,7 @@ class _AppointmentFilterSelectionsState
                                           Theme.of(context).textTheme.bodyText2,
                                     ),
                                     Transform.scale(
-                                      scale: 0.8,
+                                      scale: 0.8.sp,
                                       child: const Icon(
                                         Icons.add,
                                         color: AppPalette.primaryColor,

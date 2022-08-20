@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
 
 class FixedDrawerItem extends StatefulWidget {
@@ -35,9 +36,8 @@ class _FixedDrawerItemState extends State<FixedDrawerItem> {
           onTap: () => cubit.changeSelectedDrawerIconIndex(widget.id),
           child: cubit.selectedDrawerIconIndex == widget.id
               ? Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 2),
-                  margin: const EdgeInsets.only(bottom: 30),
+                  padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 2.w),
+                  margin: EdgeInsets.only(bottom: 30.h),
                   decoration: BoxDecoration(
                     color: Colors.white12,
                     borderRadius: BorderRadius.circular(5),
@@ -47,7 +47,7 @@ class _FixedDrawerItemState extends State<FixedDrawerItem> {
                       widget.iconPath,
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 7),
+                          padding: EdgeInsets.only(top: 7.h),
                           child: Text(
                             widget.label,
                             style: Theme.of(context).textTheme.headline3,
@@ -58,13 +58,13 @@ class _FixedDrawerItemState extends State<FixedDrawerItem> {
                   ),
                 )
               : Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
+                  padding: EdgeInsets.only(bottom: 20.h),
                   child: Column(
                     children: [
                       widget.iconPath,
                       Center(
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 7),
+                          padding: EdgeInsets.only(top: 7.h),
                           child: Text(
                             widget.label,
                             style: Theme.of(context).textTheme.headline3,

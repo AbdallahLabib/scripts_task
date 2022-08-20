@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
 import 'package:scripts_task/shared/style/app_pallete.dart';
@@ -16,7 +17,7 @@ class CalendarWidget extends StatefulWidget {
 class _CalendarWidgetState extends State<CalendarWidget> {
   late final SettingsCubit cubit;
   DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;      
+  DateTime? _selectedDay;
 
   @override
   void initState() {
@@ -30,10 +31,11 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     return BlocBuilder<SettingsCubit, SettingsState>(
       builder: (context, state) {
         return Container(
-          height: 260,
+          height: 260.h,
+          width: 256.w,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
             border: Border.all(
               color: const Color(0xffEFEEEE),
             ),
@@ -41,21 +43,21 @@ class _CalendarWidgetState extends State<CalendarWidget> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 5, bottom: 10),
+                padding: EdgeInsets.only(top: 5.h, bottom: 10.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
                       onTap: () => cubit.monthToLeft(),
                       child: Transform.scale(
-                        scale: 0.7,
+                        scale: 0.7.sp,
                         child: const Icon(CupertinoIcons.left_chevron),
                       ),
                     ),
                     Text(
                       DateFormat("MMM yyyy").format(cubit.focusedDay),
-                      style: const TextStyle(
-                        fontSize: 12.0,
+                      style: TextStyle(
+                        fontSize: 12.0.sp,
                         fontWeight: FontWeight.w700,
                         color: AppPalette.primaryColor,
                       ),
@@ -63,7 +65,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     InkWell(
                       onTap: () => cubit.monthToRight(),
                       child: Transform.scale(
-                        scale: 0.7,
+                        scale: 0.7.sp,
                         child: const Icon(CupertinoIcons.right_chevron),
                       ),
                     ),
@@ -86,31 +88,31 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     dowTextFormatter: (date, locale) {
                       return DateFormat("E").format(date).toUpperCase();
                     },
-                    weekdayStyle: const TextStyle(
-                      fontSize: 12.0,
+                    weekdayStyle: TextStyle(
+                      fontSize: 12.0.sp,
                       fontWeight: FontWeight.w700,
                     ),
-                    weekendStyle: const TextStyle(
-                      fontSize: 12.0,
+                    weekendStyle: TextStyle(
+                      fontSize: 12.0.sp,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  calendarStyle: const CalendarStyle(
+                  calendarStyle: CalendarStyle(
                     todayTextStyle: TextStyle(
-                      fontSize: 13.0,
+                      fontSize: 13.0.sp,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
                     ),
-                    todayDecoration: BoxDecoration(
+                    todayDecoration: const BoxDecoration(
                       color: AppPalette.primaryColor,
                       shape: BoxShape.circle,
                     ),
                     selectedTextStyle: TextStyle(
-                      fontSize: 13.0,
+                      fontSize: 13.0.sp,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
                     ),
-                    selectedDecoration: BoxDecoration(
+                    selectedDecoration: const BoxDecoration(
                       color: AppPalette.primaryColor,
                       shape: BoxShape.circle,
                     ),
