@@ -11,6 +11,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsFontGen {
+  const $AssetsFontGen();
+
+  /// File path: assets/font/Roboto-Regular.ttf
+  String get robotoRegular => 'assets/font/Roboto-Regular.ttf';
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -76,11 +83,23 @@ class $AssetsImagesGen {
   AssetGenImage get maleUser => const AssetGenImage('assets/images/maleUser.png');
 }
 
+class $AssetsLangGen {
+  const $AssetsLangGen();
+
+  /// File path: assets/lang/ar.json
+  String get ar => 'assets/lang/ar.json';
+
+  /// File path: assets/lang/en.json
+  String get en => 'assets/lang/en.json';
+}
+
 class Assets {
   Assets._();
 
+  static const $AssetsFontGen font = $AssetsFontGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLangGen lang = $AssetsLangGen();
 }
 
 class AssetGenImage {

@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 773),
+      designSize: const Size(1440, 994),
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
@@ -47,29 +47,36 @@ class MyApp extends StatelessWidget {
           ],
           child: EasyLocalization(
             supportedLocales: const [
-              //Locale('en'),
-              Locale('ar'),
+              Locale('en'),
+              //Locale('ar'),
             ],
             useOnlyLangCode: true,
             path: 'assets/lang',
-            fallbackLocale: const Locale('ar'),
-            child: MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'Scripts',
-              theme: appTheme(),
-              onGenerateRoute: appRouter.onGenerateRoute,
-              home: child,
-              locale: context.locale,
-              supportedLocales: context.supportedLocales,
-              localizationsDelegates: [
-                FormBuilderLocalizations.delegate,
-                ...context.localizationDelegates,
-              ],
+            fallbackLocale: const Locale('en'),
+            child: Builder(
+              builder: (context) {
+                return MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  title: 'Scripts',
+                  theme: appTheme(),
+                  home: const WebScaffold(),
+                  onGenerateRoute: appRouter.onGenerateRoute,
+                  builder: (context, child) {
+                    return child!;
+                  },
+                  locale: context.locale,
+                  supportedLocales: context.supportedLocales,
+                  localizationsDelegates: [
+                    FormBuilderLocalizations.delegate,
+                    ...context.localizationDelegates,
+                  ],
+                );
+              }
             ),
           ),
         );
       },
-      child: const WebScaffold(),
+      
     );
   }
 }
