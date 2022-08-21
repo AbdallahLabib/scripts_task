@@ -10,9 +10,13 @@ import 'package:scripts_task/responsive/web_scaffold.dart';
 import 'package:scripts_task/shared/general/bloc_observer.dart';
 import 'package:scripts_task/shared/general/routes.dart';
 import 'package:scripts_task/shared/style/app_theme.dart';
+import 'injection_container.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  //Dependency Injection
+  await di.initn();
 
   //EasyLocalization
   await EasyLocalization.ensureInitialized();

@@ -1,11 +1,9 @@
-class Selection {
-  int id;
-  String name;
-  String imagePath;
+import 'package:scripts_task/practitioner_screen/domain/entities/practitioner.dart';
 
-  Selection({
-    required this.id,
-    required this.name,
-    this.imagePath = "",
+class Selection extends Practitioner {
+  const Selection({
+    required super.id,
+    required super.name,
+    super.imagePath,
   });
 }
