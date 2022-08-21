@@ -80,82 +80,98 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                           //bottom section
                           cubit.isPractitionerSelected
                               ? const ProfileSection()
-                              : SizedBox(
-                                  height: 870.h,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      //settings section
-                                      const SettingsSection(),
-
-                                      //vertical divider
-                                      Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 24.w),
-                                        child: VerticalDivider(
-                                          width: 1.w,
-                                          color: AppPalette.inactiveColor
-                                              .withOpacity(0.4),
+                              : !cubit.isPractitionerSelected &&
+                                      cubit.isOpen &&
+                                      cubit.selectedAppointmentFilterIndex != 0
+                                  ? SizedBox(
+                                      height: 870.h,
+                                      child: Center(
+                                        child: Text(
+                                          "No Data",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1,
                                         ),
                                       ),
+                                    )
+                                  : SizedBox(
+                                      height: 870.h,
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          //settings section
+                                          const SettingsSection(),
 
-                                      //doctors and nurses -- header & body
-                                      Expanded(
-                                        //flex: 3,
-                                        child: Padding(
-                                          padding: EdgeInsets.only(right: 90.w),
-                                          child: Column(
-                                            children: [
-                                              //header [# of practitiones + toggle button]
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                          //vertical divider
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 24.w),
+                                            child: VerticalDivider(
+                                              width: 1.w,
+                                              color: AppPalette.inactiveColor
+                                                  .withOpacity(0.4),
+                                            ),
+                                          ),
+
+                                          //doctors and nurses -- header & body
+                                          Expanded(
+                                            child: Padding(
+                                              padding:
+                                                  EdgeInsets.only(right: 90.w),
+                                              child: Column(
                                                 children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        bottom: 16.h),
-                                                    child: Text(
-                                                      "30 practitioners ",
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyText2,
-                                                    ),
+                                                  //header [# of practitiones + toggle button]
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                bottom: 16.h),
+                                                        child: Text(
+                                                          "30 practitioners ",
+                                                          style:
+                                                              Theme.of(context)
+                                                                  .textTheme
+                                                                  .bodyText2,
+                                                        ),
+                                                      ),
+                                                      //toggle button
+                                                    ],
                                                   ),
-                                                  //toggle button
-                                                  //TODO:: toggle [Doctors - Nurses]
+
+                                                  //body --> GridView of practitioners
+                                                  ResponsiveLayout(
+                                                    mobile:
+                                                        PractitionersGridSection(
+                                                      crossAxisCount: 1,
+                                                      childAspectRatio: 10.sp,
+                                                    ),
+                                                    tablet:
+                                                        PractitionersGridSection(
+                                                      crossAxisCount: 2,
+                                                      childAspectRatio: 4.8.sp,
+                                                    ),
+                                                    desktop:
+                                                        PractitionersGridSection(
+                                                      crossAxisCount:
+                                                          cubit.isOpen ? 2 : 3,
+                                                      childAspectRatio:
+                                                          cubit.isOpen
+                                                              ? 2.35
+                                                              : 2.7.sp,
+                                                    ),
+                                                  )
                                                 ],
                                               ),
-
-                                              //body --> GridView of practitioners
-                                              ResponsiveLayout(
-                                                mobile:
-                                                    PractitionersGridSection(
-                                                  crossAxisCount: 1,
-                                                  childAspectRatio: 10.sp,
-                                                ),
-                                                tablet:
-                                                    PractitionersGridSection(
-                                                  crossAxisCount: 2,
-                                                  childAspectRatio: 4.8.sp,
-                                                ),
-                                                desktop:
-                                                    PractitionersGridSection(
-                                                  crossAxisCount:
-                                                      cubit.isOpen ? 2 : 3,
-                                                  childAspectRatio: cubit.isOpen
-                                                      ? 2.35
-                                                      : 2.7.sp,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                )
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    )
                         ],
                       ),
                     ),
