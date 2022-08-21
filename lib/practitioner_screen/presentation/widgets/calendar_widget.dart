@@ -31,7 +31,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     return BlocBuilder<CalendarCubit, CalendarState>(
       builder: (context, state) {
         return Container(
-          height: 260.h,
+          height: 280.h,
+          padding: EdgeInsets.all(15.r),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10.r),

@@ -8,7 +8,7 @@ class CalendarInitial extends CalendarState {}
 class ChangeSelectedDrawerIconIndexState extends CalendarState {}
 
 ///create appointment
-class ChangeCreateAppointmentVisibilityState extends CalendarState {}
+class ToggleCreateAppointmentVisibilityState extends CalendarState {}
 
 class ChangeSelectedAppointmentTypeIndexState extends CalendarState {}
 
@@ -40,3 +40,8 @@ class ChangeSelectedTypeIndexState extends CalendarState {}
 
 ///prcatice
 class ChangeSelectedPracticeIndexState extends CalendarState {}
+
+///prcatitioner
+class UpdateSelectedPractionerState extends CalendarState {}
+
+class ToggleIsPractitionerSelected extends CalendarState {}

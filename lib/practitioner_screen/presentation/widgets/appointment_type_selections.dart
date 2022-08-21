@@ -30,7 +30,7 @@ class _AppointmentTypeSelectionsState extends State<AppointmentTypeSelections> {
           runSpacing: 8.h,
           children: cubit.appointmentType
               .map((e) => CustomChipWidget(
-                    label: e.label,
+                    label: e.name,
                     isSelected: e.id == cubit.selectedAppointmentTypeIndex,
                     onTap: () => cubit.changeSelectedAppointmentType(e.id),
                   ))

@@ -2,19 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
 import 'package:scripts_task/shared/style/app_pallete.dart';
 
-class ProfileSection extends StatelessWidget {
-  final int id;
-  final String name;
-  final String imagePath;
-
+class ProfileSection extends StatefulWidget {
   const ProfileSection({
     Key? key,
-    required this.id,
-    required this.name,
-    required this.imagePath,
   }) : super(key: key);
+
+  @override
+  State<ProfileSection> createState() => _ProfileSectionState();
+}
+
+class _ProfileSectionState extends State<ProfileSection> {
+  late final CalendarCubit cubit;
+
+  @override
+  void initState() {
+    cubit = CalendarCubit.get(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,13 +70,15 @@ class ProfileSection extends StatelessWidget {
                       //Image
                       Padding(
                         padding: EdgeInsets.only(right: 8.w),
-                        child: id == 0
+                        child: cubit.appointmentFilters[0].imagePath
+                                .contains("images")
                             ? CircleAvatar(
                                 radius: 16.r,
-                                backgroundImage: AssetImage(imagePath),
+                                backgroundImage: AssetImage(
+                                    cubit.appointmentFilters[0].imagePath),
                               )
                             : SvgPicture.asset(
-                                imagePath,
+                                cubit.appointmentFilters[0].imagePath,
                                 width: 16.sp,
                                 height: 16.sp,
                               ),
@@ -79,7 +88,7 @@ class ProfileSection extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            name,
+                            cubit.appointmentFilters[0].name,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           Text(

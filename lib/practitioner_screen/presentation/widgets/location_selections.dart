@@ -29,8 +29,8 @@ class _LocationSelectionsState extends State<LocationSelections> {
           runSpacing: 8.h,
           children: cubit.locations
               .map((e) => CustomChipWidget(
-                    label: e.label,
-                    iconPath: e.icon,
+                    label: e.name,
+                    iconPath: e.imagePath,
                     isSelected: e.id == cubit.selectedLocationIndex,
                     onTap: () => cubit.changeSelectedLocation(e.id),
                   ))

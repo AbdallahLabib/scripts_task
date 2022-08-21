@@ -40,7 +40,7 @@ class _PractitionerHeaderSectionState extends State<PractitionerHeaderSection> {
                           onTap: () => cubit.changeVisibility(),
                           borderRadius: BorderRadius.circular(10.r),
                           child: Transform.scale(
-                            scale: 0.8.sp.sp,
+                            scale: 0.8.sp,
                             child: const Icon(
                               CupertinoIcons.right_chevron,
                               color: AppPalette.primaryColor,
@@ -72,8 +72,9 @@ class _PractitionerHeaderSectionState extends State<PractitionerHeaderSection> {
                         ),
                   Text(
                     cubit
-                        .appointmentFilter[cubit.selectedAppointmentFilterIndex]
-                        .label,
+                        .appointmentFilters[
+                            cubit.selectedAppointmentFilterIndex]
+                        .name,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ],

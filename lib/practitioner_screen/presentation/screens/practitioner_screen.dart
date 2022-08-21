@@ -78,12 +78,8 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                           const PractitionerHeaderSection(),
 
                           //bottom section
-                          cubit.selectedAppointmentFilterIndex != 0
-                              ? ProfileSection(
-                                  id: 0,
-                                  name: "Name",
-                                  imagePath: Assets.images.maleUser.path,
-                                )
+                          cubit.isPractitionerSelected
+                              ? const ProfileSection()
                               : SizedBox(
                                   height: 870.h,
                                   child: Row(

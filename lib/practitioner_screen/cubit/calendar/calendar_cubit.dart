@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scripts_task/practitioner_screen/data/models/view_models/practitioner_model.dart';
-import 'package:scripts_task/practitioner_screen/data/models/view_models/selections_model.dart';
+import 'package:scripts_task/practitioner_screen/data/models/view_models/selection_model.dart';
 import 'package:scripts_task/shared/assets/assets.gen.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -34,19 +33,20 @@ class CalendarCubit extends Cubit<CalendarState> {
   bool isOpen = false;
 
   changeVisibility() {
-    selectedAppointmentFilterIndex = 0;
+    selectedAppointmentFilterIndex =
+        isPractitionerSelected ? selectedAppointmentFilterIndex : 0;
     isOpen = !isOpen;
-    emit(ChangeCreateAppointmentVisibilityState());
+    emit(ToggleCreateAppointmentVisibilityState());
   }
 
   int selectedAppointmentTypeIndex = 0;
 
-  List<Selections> appointmentType = [
-    Selections(id: 0, label: "General"),
-    Selections(id: 1, label: "Group"),
-    Selections(id: 2, label: "Block Slot"),
-    Selections(id: 3, label: "Advanced"),
-    Selections(id: 4, label: "Walk In"),
+  List<Selection> appointmentType = [
+    Selection(id: 0, name: "General"),
+    Selection(id: 1, name: "Group"),
+    Selection(id: 2, name: "Block Slot"),
+    Selection(id: 3, name: "Advanced"),
+    Selection(id: 4, name: "Walk In"),
   ];
 
   changeSelectedAppointmentType(int currIndex) {
@@ -68,12 +68,12 @@ class CalendarCubit extends Cubit<CalendarState> {
 
   int selectedAppointmentFilterIndex = 0;
 
-  List<Selections> appointmentFilter = [
-    Selections(id: 0, label: "Practitioner"),
-    Selections(id: 1, label: "Profile, date & time"),
-    Selections(id: 2, label: "Service & payment"),
-    Selections(id: 3, label: "Patient"),
-    Selections(id: 4, label: "Notes"),
+  List<Selection> appointmentFilters = [
+    Selection(id: 0, name: "Practitioner"),
+    Selection(id: 1, name: "Profile, date & time"),
+    Selection(id: 2, name: "Service & payment"),
+    Selection(id: 3, name: "Patient"),
+    Selection(id: 4, name: "Notes"),
   ];
 
   changeSelectedAppointmentFilter(int currIndex) {
@@ -134,13 +134,13 @@ class CalendarCubit extends Cubit<CalendarState> {
   ///speciality options
   int selectedSpecialityIndex = 0;
 
-  List<Selections> labels = [
-    Selections(id: 0, label: "All"),
-    Selections(id: 1, label: "General Practice"),
-    Selections(id: 2, label: "OB-GYN"),
-    Selections(id: 3, label: "ENT"),
-    Selections(id: 4, label: "Physiotherapy"),
-    Selections(id: 5, label: "+3 more"),
+  List<Selection> labels = [
+    Selection(id: 0, name: "All"),
+    Selection(id: 1, name: "General Practice"),
+    Selection(id: 2, name: "OB-GYN"),
+    Selection(id: 3, name: "ENT"),
+    Selection(id: 4, name: "Physiotherapy"),
+    Selection(id: 5, name: "+3 more"),
   ];
 
   changeSelectedSpeciality(int currIndex) {
@@ -151,10 +151,10 @@ class CalendarCubit extends Cubit<CalendarState> {
   ///speciality options
   int selectedLocationIndex = 0;
 
-  List<Selections> locations = [
-    Selections(id: 0, label: "Office", icon: Assets.icons.plus.path),
-    Selections(id: 1, label: "Home", icon: Assets.icons.home.path),
-    Selections(id: 2, label: "virtual", icon: Assets.icons.video.path),
+  List<Selection> locations = [
+    Selection(id: 0, name: "Office", imagePath: Assets.icons.plus.path),
+    Selection(id: 1, name: "Home", imagePath: Assets.icons.home.path),
+    Selection(id: 2, name: "virtual", imagePath: Assets.icons.video.path),
   ];
 
   changeSelectedLocation(int currIndex) {
@@ -165,10 +165,11 @@ class CalendarCubit extends Cubit<CalendarState> {
   ///type options
   int selectedTypeIndex = 0;
 
-  List<Selections> types = [
-    Selections(id: 0, label: "First Time", icon: Assets.icons.firstTime.path),
-    Selections(id: 1, label: "Follow Up", icon: Assets.icons.followUp.path),
-    Selections(id: 2, label: "Walk In", icon: Assets.icons.walkIn.path),
+  List<Selection> types = [
+    Selection(
+        id: 0, name: "First Time", imagePath: Assets.icons.firstTime.path),
+    Selection(id: 1, name: "Follow Up", imagePath: Assets.icons.followUp.path),
+    Selection(id: 2, name: "Walk In", imagePath: Assets.icons.walkIn.path),
   ];
 
   changeSelectedType(int currIndex) {
@@ -179,11 +180,11 @@ class CalendarCubit extends Cubit<CalendarState> {
   ///practice
   int selectedPracticeIndex = 0;
 
-  List<Selections> practice = [
-    Selections(
+  List<Selection> practice = [
+    Selection(
         id: 0,
-        label: "Primary Clinic Dubai",
-        icon: Assets.images.hospital.path),
+        name: "Primary Clinic Dubai",
+        imagePath: Assets.images.hospital.path),
   ];
 
   changeSelectedPractice(int currIndex) {
@@ -192,97 +193,113 @@ class CalendarCubit extends Cubit<CalendarState> {
   }
 
   ///practitiner
-  Practitoner selectedPractitioner(Practitoner practitoner) {
+  bool isPractitionerSelected = false;
+  Selection selectedPractitioner(Selection practitoner) {
+    toggleIsPractitionerSelected();
+
+    changeSelectedAppointmentFilter(1);
+
+    isOpen = true;
+    emit(ToggleCreateAppointmentVisibilityState());
+
+    appointmentFilters.removeAt(0);
+    appointmentFilters.insert(0, practitoner);
+    emit(UpdateSelectedPractionerState());
     return practitoner;
   }
 
-  List<Practitoner> practitioners = [
-    Practitoner(
+  toggleIsPractitionerSelected() {
+    isPractitionerSelected = !isPractitionerSelected;
+    emit(ToggleIsPractitionerSelected());
+  }
+
+  List<Selection> practitioners = [
+    Selection(
       id: 0,
       name: "Mark Black",
       imagePath: Assets.images.maleUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 1,
       name: "Annete Black",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 2,
       name: "Courtenry Henry",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 3,
       name: "Dourlene Robertson",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 4,
       name: "Elaner Pena",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 5,
       name: "Albert Flores",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 6,
       name: "Esther Howard",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 7,
       name: "Jane Cooper",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 8,
       name: "Robert Fox",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 9,
       name: "Esther Howard",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 10,
       name: "Jacob Jones",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 11,
       name: "Devon Lane",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 12,
       name: "Theresa Webb",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 13,
       name: "Jenny Wilson",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 14,
       name: "Marvin McKinney",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 15,
       name: "Lesile Alexander",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 16,
       name: "Lesile Alexander",
       imagePath: Assets.icons.dummyUser.path,
     ),
-    Practitoner(
+    Selection(
       id: 17,
       name: "Lesile Alexander",
       imagePath: Assets.icons.dummyUser.path,

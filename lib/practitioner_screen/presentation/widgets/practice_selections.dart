@@ -69,12 +69,12 @@ class _PracticeSelectionsState extends State<PracticeSelections> {
                             padding: EdgeInsets.symmetric(horizontal: 8.0.w),
                             child: CircleAvatar(
                               radius: 12.r,
-                              backgroundImage: AssetImage(e.icon),
+                              backgroundImage: AssetImage(e.imagePath),
                             ),
                           ),
                           //label
                           Text(
-                            e.label,
+                            e.name,
                             style: TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 13.sp,

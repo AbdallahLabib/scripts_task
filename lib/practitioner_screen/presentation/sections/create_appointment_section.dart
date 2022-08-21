@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/appointment_filter_selections.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/appointment_type_selections.dart';
+import 'package:scripts_task/shared/style/app_pallete.dart';
 
-class CreateAppointmentSection extends StatelessWidget {
+class CreateAppointmentSection extends StatefulWidget {
   const CreateAppointmentSection({Key? key}) : super(key: key);
+
+  @override
+  State<CreateAppointmentSection> createState() =>
+      _CreateAppointmentSectionState();
+}
+
+class _CreateAppointmentSectionState extends State<CreateAppointmentSection> {
+  late final CalendarCubit cubit;
+
+  @override
+  void initState() {
+    cubit = CalendarCubit.get(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +60,26 @@ class CreateAppointmentSection extends StatelessWidget {
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0),
                     ),
+                  ),
+                  backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                    (states) {
+                      if (states.contains(MaterialState.hovered)) {
+                        return AppPalette.primaryColor;
+                      }
+                      return cubit.isPractitionerSelected
+                          ? AppPalette.primaryColor
+                          : Colors.white;
+                    },
+                  ),
+                  foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                    (states) {
+                      if (states.contains(MaterialState.hovered)) {
+                        return Colors.white;
+                      }
+                      return cubit.isPractitionerSelected
+                          ? Colors.white
+                          : AppPalette.primaryColor;
+                    },
                   ),
                 ),
                 child: Center(

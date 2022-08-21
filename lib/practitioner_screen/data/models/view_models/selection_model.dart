@@ -1,11 +1,11 @@
-class Practitoner {
+class Selection {
   int id;
   String name;
   String imagePath;
 
-  Practitoner({
+  Selection({
     required this.id,
     required this.name,
-    required this.imagePath,
+    this.imagePath = "",
   });
 }
