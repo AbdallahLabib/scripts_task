@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scripts_task/shared/assets/assets.gen.dart';
+import 'package:scripts_task/practitioner_screen/presentation/screens/fixed_side_drawer.dart';
+import 'package:scripts_task/practitioner_screen/presentation/screens/practitioner_screen.dart';
 
 class WebScaffold extends StatelessWidget {
   const WebScaffold({Key? key}) : super(key: key);
@@ -9,32 +9,12 @@ class WebScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
-        children: [
-          Container(
-            width: 56,
-            color: Colors.black,
-            child: Column(
-              children: [
-                //logo
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 32, horizontal: 10),
-                  child: Assets.icons.logo.svg(),
-                ),
+        children: const [
+          //Fixed side drawer
+          FixedSideDrawer(),
 
-                //dashboard
-                Assets.icons.dashboard.svg(),
-                Text('Dashboard', style: TextStyle(),)
-
-
-              ],
-            ),
-          ),
-          Expanded(
-            child: Container(
-              color: Colors.white,
-            ),
-          ),
+          //Practitioner screen
+          PractitionerScreen(),
         ],
       ),
     );

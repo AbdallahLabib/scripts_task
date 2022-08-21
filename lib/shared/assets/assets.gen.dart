@@ -11,6 +11,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsFontGen {
+  const $AssetsFontGen();
+
+  /// File path: assets/font/Roboto-Regular.ttf
+  String get robotoRegular => 'assets/font/Roboto-Regular.ttf';
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -20,14 +27,20 @@ class $AssetsIconsGen {
   /// File path: assets/icons/calendar.svg
   SvgGenImage get calendar => const SvgGenImage('assets/icons/calendar.svg');
 
+  /// File path: assets/icons/clinical.png
+  AssetGenImage get clinicalPng => const AssetGenImage('assets/icons/clinical.png');
+
   /// File path: assets/icons/clinical.svg
-  SvgGenImage get clinical => const SvgGenImage('assets/icons/clinical.svg');
+  SvgGenImage get clinicalSvg => const SvgGenImage('assets/icons/clinical.svg');
 
   /// File path: assets/icons/dashboard.svg
   SvgGenImage get dashboard => const SvgGenImage('assets/icons/dashboard.svg');
 
   /// File path: assets/icons/dummyUser.svg
   SvgGenImage get dummyUser => const SvgGenImage('assets/icons/dummyUser.svg');
+
+  /// File path: assets/icons/firstTime.svg
+  SvgGenImage get firstTime => const SvgGenImage('assets/icons/firstTime.svg');
 
   /// File path: assets/icons/followUp.svg
   SvgGenImage get followUp => const SvgGenImage('assets/icons/followUp.svg');
@@ -70,11 +83,23 @@ class $AssetsImagesGen {
   AssetGenImage get maleUser => const AssetGenImage('assets/images/maleUser.png');
 }
 
+class $AssetsLangGen {
+  const $AssetsLangGen();
+
+  /// File path: assets/lang/ar.json
+  String get ar => 'assets/lang/ar.json';
+
+  /// File path: assets/lang/en.json
+  String get en => 'assets/lang/en.json';
+}
+
 class Assets {
   Assets._();
 
+  static const $AssetsFontGen font = $AssetsFontGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLangGen lang = $AssetsLangGen();
 }
 
 class AssetGenImage {
