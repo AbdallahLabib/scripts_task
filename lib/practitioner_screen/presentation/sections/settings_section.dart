@@ -20,9 +20,7 @@ class SettingsSection extends StatelessWidget {
     return Container(
       width: 268.w,
       margin: EdgeInsets.only(left: 24.w),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
         children: [
           //calendar
           const CalendarWidget(),

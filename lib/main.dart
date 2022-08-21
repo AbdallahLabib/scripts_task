@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:scripts_task/practitioner_screen/cubit/practitioner/practitioner_cubit.dart';
-import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
 import 'package:scripts_task/responsive/web_scaffold.dart';
 import 'package:scripts_task/shared/general/bloc_observer.dart';
 import 'package:scripts_task/shared/general/routes.dart';
@@ -42,8 +41,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
-            BlocProvider(create: (_) => SettingsCubit()),
-            BlocProvider(create: (_) => PractitionerCubit()),
+            BlocProvider(create: (_) => CalendarCubit()),
           ],
           child: EasyLocalization(
             supportedLocales: const [
@@ -53,30 +51,27 @@ class MyApp extends StatelessWidget {
             useOnlyLangCode: true,
             path: 'assets/lang',
             fallbackLocale: const Locale('en'),
-            child: Builder(
-              builder: (context) {
-                return MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  title: 'Scripts',
-                  theme: appTheme(),
-                  home: const WebScaffold(),
-                  onGenerateRoute: appRouter.onGenerateRoute,
-                  builder: (context, child) {
-                    return child!;
-                  },
-                  locale: context.locale,
-                  supportedLocales: context.supportedLocales,
-                  localizationsDelegates: [
-                    FormBuilderLocalizations.delegate,
-                    ...context.localizationDelegates,
-                  ],
-                );
-              }
-            ),
+            child: Builder(builder: (context) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'Scripts',
+                theme: appTheme(),
+                home: const WebScaffold(),
+                onGenerateRoute: appRouter.onGenerateRoute,
+                builder: (context, child) {
+                  return child!;
+                },
+                locale: context.locale,
+                supportedLocales: context.supportedLocales,
+                localizationsDelegates: [
+                  FormBuilderLocalizations.delegate,
+                  ...context.localizationDelegates,
+                ],
+              );
+            }),
           ),
         );
       },
-      
     );
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
 import 'package:scripts_task/shared/style/app_pallete.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -15,24 +15,23 @@ class CalendarWidget extends StatefulWidget {
 }
 
 class _CalendarWidgetState extends State<CalendarWidget> {
-  late final SettingsCubit cubit;
+  late final CalendarCubit cubit;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
   @override
   void initState() {
     _selectedDay = _focusedDay;
-    cubit = SettingsCubit.get(context);
+    cubit = CalendarCubit.get(context);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SettingsCubit, SettingsState>(
+    return BlocBuilder<CalendarCubit, CalendarState>(
       builder: (context, state) {
         return Container(
           height: 260.h,
-          width: 256.w,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10.r),
@@ -98,6 +97,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     ),
                   ),
                   calendarStyle: CalendarStyle(
+                    cellMargin: EdgeInsets.all(2.r),
                     todayTextStyle: TextStyle(
                       fontSize: 13.0.sp,
                       fontWeight: FontWeight.w700,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
+import 'package:scripts_task/practitioner_screen/data/models/view_models/practitioner_model.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/custom_chip_widget.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/next_shift_container.dart';
 
@@ -69,7 +71,13 @@ class PractitionerInfoCard extends StatelessWidget {
               ),
               //Select button
               CustomChipWidget(
-                onTap: () {},
+                onTap: () => CalendarCubit.get(context).selectedPractitioner(
+                  Practitoner(
+                    id: id,
+                    name: name,
+                    imagePath: imagePath,
+                  ),
+                ),
                 label: "Select",
               )
             ],

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scripts_task/practitioner_screen/data/models/view_models/practitioner_model.dart';
 import 'package:scripts_task/practitioner_screen/data/models/view_models/selections_model.dart';
 import 'package:scripts_task/shared/assets/assets.gen.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-part 'settings_state.dart';
+part 'calendar_state.dart';
 
-class SettingsCubit extends Cubit<SettingsState> {
-  SettingsCubit() : super(SettingsInitial());
+class CalendarCubit extends Cubit<CalendarState> {
+  CalendarCubit() : super(CalendarInitial());
 
-  static SettingsCubit get(context) => BlocProvider.of(context);
+  static CalendarCubit get(context) => BlocProvider.of(context);
 
   //fixed drawer
   int selectedDrawerIconIndex = 1;
@@ -26,7 +27,7 @@ class SettingsCubit extends Cubit<SettingsState> {
 
   changeSelectedDrawerIconIndex(int currIndex) {
     selectedDrawerIconIndex = currIndex;
-    emit(ChangeToSelectedDrawerIconIndexState());
+    emit(ChangeSelectedDrawerIconIndexState());
   }
 
   //create appointment
@@ -50,7 +51,7 @@ class SettingsCubit extends Cubit<SettingsState> {
 
   changeSelectedAppointmentType(int currIndex) {
     selectedAppointmentTypeIndex = currIndex;
-    emit(ChangeToSelectedAppointmentTypeIndexState());
+    emit(ChangeSelectedAppointmentTypeIndexState());
   }
 
 /*   bool isHovering = false;
@@ -77,7 +78,7 @@ class SettingsCubit extends Cubit<SettingsState> {
 
   changeSelectedAppointmentFilter(int currIndex) {
     selectedAppointmentFilterIndex = currIndex;
-    emit(ChangeToSelectedAppointmentFilterIndexState());
+    emit(ChangeSelectedAppointmentFilterIndexState());
   }
 
   ///calendar
@@ -144,7 +145,7 @@ class SettingsCubit extends Cubit<SettingsState> {
 
   changeSelectedSpeciality(int currIndex) {
     selectedSpecialityIndex = currIndex;
-    emit(ChangeToSelectedSpecialityIndexState());
+    emit(ChangeSelectedSpecialityIndexState());
   }
 
   ///speciality options
@@ -158,7 +159,7 @@ class SettingsCubit extends Cubit<SettingsState> {
 
   changeSelectedLocation(int currIndex) {
     selectedLocationIndex = currIndex;
-    emit(ChangeToSelectedLocationIndexState());
+    emit(ChangeSelectedLocationIndexState());
   }
 
   ///type options
@@ -172,7 +173,7 @@ class SettingsCubit extends Cubit<SettingsState> {
 
   changeSelectedType(int currIndex) {
     selectedTypeIndex = currIndex;
-    emit(ChangeToSelectedTypeIndexState());
+    emit(ChangeSelectedTypeIndexState());
   }
 
   ///practice
@@ -187,6 +188,104 @@ class SettingsCubit extends Cubit<SettingsState> {
 
   changeSelectedPractice(int currIndex) {
     selectedTypeIndex = currIndex;
-    emit(ChangeToSelectedPracticeIndexState());
+    emit(ChangeSelectedPracticeIndexState());
   }
+
+  ///practitiner
+  Practitoner selectedPractitioner(Practitoner practitoner) {
+    return practitoner;
+  }
+
+  List<Practitoner> practitioners = [
+    Practitoner(
+      id: 0,
+      name: "Mark Black",
+      imagePath: Assets.images.maleUser.path,
+    ),
+    Practitoner(
+      id: 1,
+      name: "Annete Black",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 2,
+      name: "Courtenry Henry",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 3,
+      name: "Dourlene Robertson",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 4,
+      name: "Elaner Pena",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 5,
+      name: "Albert Flores",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 6,
+      name: "Esther Howard",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 7,
+      name: "Jane Cooper",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 8,
+      name: "Robert Fox",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 9,
+      name: "Esther Howard",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 10,
+      name: "Jacob Jones",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 11,
+      name: "Devon Lane",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 12,
+      name: "Theresa Webb",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 13,
+      name: "Jenny Wilson",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 14,
+      name: "Marvin McKinney",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 15,
+      name: "Lesile Alexander",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 16,
+      name: "Lesile Alexander",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+    Practitoner(
+      id: 17,
+      name: "Lesile Alexander",
+      imagePath: Assets.icons.dummyUser.path,
+    ),
+  ];
 }

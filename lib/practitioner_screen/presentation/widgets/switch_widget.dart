@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
 import 'package:scripts_task/shared/style/app_pallete.dart';
 
 class SwitchWidget extends StatefulWidget {
@@ -12,17 +12,17 @@ class SwitchWidget extends StatefulWidget {
 }
 
 class _SwitchWidgetState extends State<SwitchWidget> {
-  late final SettingsCubit cubit;
+  late final CalendarCubit cubit;
 
   @override
   void initState() {
-    cubit = SettingsCubit.get(context);
+    cubit = CalendarCubit.get(context);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SettingsCubit, SettingsState>(
+    return BlocBuilder<CalendarCubit, CalendarState>(
       builder: (context, state) {
         return SizedBox(
           width: 30.sp,

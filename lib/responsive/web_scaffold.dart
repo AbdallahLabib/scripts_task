@@ -7,18 +7,15 @@ class WebScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            //Fixed side drawer
-            FixedSideDrawer(),
+    return Scaffold(
+      body: Row(
+        children: const [
+          //Fixed side drawer
+          FixedSideDrawer(),
 
-            //Practitioner screen
-            PractitionerScreen(),
-          ],
-        ),
+          //Practitioner screen
+          PractitionerScreen(),
+        ],
       ),
     );
   }

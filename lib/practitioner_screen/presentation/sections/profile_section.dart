@@ -21,7 +21,6 @@ class ProfileSection extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 48.h,
           margin: EdgeInsets.symmetric(horizontal: 24.h),
           child: ElevatedButton(
             onPressed: () {},

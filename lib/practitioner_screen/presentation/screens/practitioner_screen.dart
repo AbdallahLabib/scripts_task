@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
 import 'package:scripts_task/practitioner_screen/presentation/sections/create_appointment_header_section.dart';
 import 'package:scripts_task/practitioner_screen/presentation/sections/create_appointment_section.dart';
 import 'package:scripts_task/practitioner_screen/presentation/sections/practitioner_header_section.dart';
@@ -25,19 +25,18 @@ class PractitionerScreen extends StatefulWidget {
 class _PractitionerScreenState extends State<PractitionerScreen> {
   final ScrollController _scrollController = ScrollController();
 
-  late final SettingsCubit cubit;
+  late final CalendarCubit cubit;
 
   @override
   void initState() {
-    cubit = SettingsCubit.get(context);
+    cubit = CalendarCubit.get(context);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SettingsCubit, SettingsState>(
+    return BlocBuilder<CalendarCubit, CalendarState>(
       builder: (context, state) {
-        final _size = MediaQuery.of(context).size;
         return cubit.selectedDrawerIconIndex != 1
             ? Expanded(
                 child: Center(
@@ -72,7 +71,6 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
 
                     //Practitioner Header, Calendar Settings & Grid Sections
                     Expanded(
-                      flex: 100,
                       child: ListView(
                         controller: _scrollController,
                         children: [
@@ -83,11 +81,11 @@ class _PractitionerScreenState extends State<PractitionerScreen> {
                           cubit.selectedAppointmentFilterIndex != 0
                               ? ProfileSection(
                                   id: 0,
-                                  name: "name",
+                                  name: "Name",
                                   imagePath: Assets.images.maleUser.path,
                                 )
                               : SizedBox(
-                                  height: 900.h,
+                                  height: 870.h,
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,

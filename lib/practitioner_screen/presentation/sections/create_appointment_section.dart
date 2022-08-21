@@ -10,28 +10,31 @@ class CreateAppointmentSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 16.h),
-      height: 840.h,
+      height: 890.h,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              //Appointment Type Selections
-              Padding(
-                padding: EdgeInsets.only(left: 24.w),
-                child: const AppointmentTypeSelections(),
-              ),
+          Expanded(
+            child: ListView(
+              children: [
+                //Appointment Type Selections
+                Padding(
+                  padding: EdgeInsets.only(left: 24.w),
+                  child: const AppointmentTypeSelections(),
+                ),
 
-              SizedBox(
-                height: 32.h,
-              ),
+                SizedBox(
+                  height: 32.h,
+                ),
 
-              //Appointment Filter Selections
-              const AppointmentFilterSelections(),
-            ],
+                //Appointment Filter Selections
+                const AppointmentFilterSelections(),
+              ],
+            ),
           ),
+
+          //Create Button
           SizedBox(
             height: 48.h,
             child: ElevatedButton(
@@ -43,8 +46,14 @@ class CreateAppointmentSection extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: const Center(
-                  child: Text("create"),
+                child: Center(
+                  child: Text(
+                    "Create",
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 )),
           )
         ],

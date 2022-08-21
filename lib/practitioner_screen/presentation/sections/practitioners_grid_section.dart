@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:scripts_task/practitioner_screen/cubit/practitioner/practitioner_cubit.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/practitioner_info_card.dart';
 
 class PractitionersGridSection extends StatefulWidget {
@@ -22,17 +22,17 @@ class PractitionersGridSection extends StatefulWidget {
 
 class _PractitionersGridSectionState extends State<PractitionersGridSection> {
   final ScrollController _scrollController = ScrollController();
-  late final PractitionerCubit cubit;
+  late final CalendarCubit cubit;
 
   @override
   void initState() {
-    cubit = PractitionerCubit.get(context);
+    cubit = CalendarCubit.get(context);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PractitionerCubit, PractitionerState>(
+    return BlocBuilder<CalendarCubit, CalendarState>(
       builder: (context, state) {
         return SizedBox(
           height: 765.h,

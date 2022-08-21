@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:scripts_task/practitioner_screen/cubit/settings/settings_cubit.dart';
+import 'package:scripts_task/practitioner_screen/cubit/calendar/calendar_cubit.dart';
 import 'package:scripts_task/practitioner_screen/presentation/widgets/custom_chip_widget.dart';
 
 class AppointmentTypeSelections extends StatefulWidget {
@@ -13,17 +13,17 @@ class AppointmentTypeSelections extends StatefulWidget {
 }
 
 class _AppointmentTypeSelectionsState extends State<AppointmentTypeSelections> {
-  late final SettingsCubit cubit;
+  late final CalendarCubit cubit;
 
   @override
   void initState() {
-    cubit = SettingsCubit.get(context);
+    cubit = CalendarCubit.get(context);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SettingsCubit, SettingsState>(
+    return BlocBuilder<CalendarCubit, CalendarState>(
       builder: (context, state) {
         return Wrap(
           spacing: 5.w,
